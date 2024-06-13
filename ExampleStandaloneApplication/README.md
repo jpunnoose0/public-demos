@@ -27,7 +27,7 @@ We use CMake as build system.
 The [CMakeLists.txt](CMakeLists.txt) file defines the required input and configuration for building the application.
 The first part contains the header section that defines the CMake project and locates 3rd-party libraries.
 The second part defines the source files for the demo plugin and configures include directories as well as linker input.
-
+If the ImFusionLib package is not found, you might need to set the cmake-variable `ImFusionLib_DIR` to the `cmake/ImFusionLibsubfolder` of your installation path (note that on Linux the standard installation path is `/usr/lib`)
 
 ### The DemoExecutable class
 Every application using the ImFusion SDK is required to initialize the ImFusionLib and its plugins in an orderly fashion.
