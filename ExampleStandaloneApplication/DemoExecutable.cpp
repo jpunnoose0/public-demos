@@ -4,6 +4,7 @@
 #include <ImFusion/Base/DataModel.h>
 #include <ImFusion/Dicom/DicomLoader.h>
 #include <ImFusion/GL/SharedImageSet.h>
+#include <ImFusion/Core/GL/ContextManager.h>
 #include <ImFusion/GUI/GlContextQt.h>
 #include <ImFusion/GUI/InteractiveView.h>
 #include <ImFusion/GUI/ViewGroup.h>
@@ -17,7 +18,7 @@ int main(int argn, char** argv)
 	QApplication app(argn, argv);
 	ImFusion::DemoExecutable ex;
 	ex.show();
-	app.exec();
+	QApplication::exec();
 }
 
 
@@ -36,13 +37,9 @@ namespace ImFusion
 	{
 		// Load ImFusion plugins. Adjust path to your local machine if needed!
 #ifdef _WIN32
-#	ifdef _DEBUG
-		loadPlugins({"C:/Program Files/ImFusion/ImFusion Suite/SuiteDev/plugins"});
-#	else
-		loadPlugins({"C:/Program Files/ImFusion/ImFusion Suite/Suite/plugins"});
-#	endif
+		loadPlugins({Platform::libraryPath("ImFusionLib").parentPath() / "plugins"});
 #else
-		loadPlugins({Platform::libraryPath("ImFusionLib").parentPath() / "../lib/ImFusionLib/plugins"});
+		loadPlugins({Platform::libraryPath("ImFusionLib").parentPath() / "ImFusionLib/plugins"});
 #endif
 
 		// create a new DisplayWidget and assign it to the QMainWindow
@@ -94,6 +91,8 @@ namespace ImFusion
 
 	DemoExecutable::~DemoExecutable()
 	{
+		// some Qt versions may release the OpenGL context early, so we have to re-acquire it here
+		GL::ContextManager::makeCurrent();
 		// clean up before the ImFusion SDK is deinitalized
 		for (auto v : m_display->views())
 			v->setVisibleData({});
