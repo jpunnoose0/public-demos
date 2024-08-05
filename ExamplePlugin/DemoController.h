@@ -1,4 +1,4 @@
-/* Copyright (c) 2012-2019 ImFusion GmbH, Munich, Germany. All rights reserved. */
+/* Copyright (c) 2012-2024 ImFusion GmbH, Munich, Germany. All rights reserved. */
 #pragma once
 
 #include <ImFusion/GUI/AlgorithmController.h>
@@ -19,13 +19,13 @@ namespace ImFusion
 
 	public:
 		/// Constructor with the algorithm instance
-		DemoController(DemoAlgorithm* algorithm);
+		explicit DemoController(DemoAlgorithm* algorithm);
 
 		/// Destructor
-		virtual ~DemoController();
+		~DemoController() override;
 
 		/// Initializes the widget
-		void init();
+		void init() override;
 
 	public slots:
 		/// Apply the chosen processing

@@ -1,4 +1,4 @@
-/* Copyright (c) 2012-2019 ImFusion GmbH, Munich, Germany. All rights reserved. */
+/* Copyright (c) 2012-2024 ImFusion GmbH, Munich, Germany. All rights reserved. */
 #pragma once
 
 #include <ImFusion/Base/Algorithm.h>
@@ -15,7 +15,7 @@ namespace ImFusion
 	{
 	public:
 		/// Creates the algorithm instance with an image
-		DemoAlgorithm(SharedImageSet* img);
+		explicit DemoAlgorithm(SharedImageSet* img);
 
 		/// Set downsampling factor
 		void setFactor(int factor) { m_factor = factor; }
@@ -23,7 +23,7 @@ namespace ImFusion
 		/// \name	Methods implementing the algorithm interface
 		//\{
 		/// Factory method to check for applicability or to create the algorithm
-		static bool createCompatible(const DataList& data, Algorithm** a = 0);
+		static bool createCompatible(const DataList& data, Algorithm** a = nullptr);
 
 		/// Applies the processing
 		void compute() override;

@@ -20,15 +20,15 @@ namespace ImFusion
 	{
 	public:
 		DemoMainWindowBase();
-		virtual ~DemoMainWindowBase();
+		~DemoMainWindowBase() override;
 
 		// implement layout setting to display algorithm controllers in the algorithm dock
-		// for example: one can set m_algorihtmDock layout for a container widget
+		// for example: one can set m_algorithmDock layout for a container widget
 		// the widget can later host algorithm controllers in a scroll area
 		QBoxLayout* algorithmDock() const override { return m_algorithmDock; };
 
 		// implement layout setting to display 2D/3D views of image data
-		// and offer a srollbar if there are multiple 2D image frames in display
+		// and offer a scrollbar if there are multiple 2D image frames in display
 		QBoxLayout* scrollBarLayout() const override { return m_verticalLayout; };
 
 		// display image data in the view and take care of arranging the views as well as user interaction
@@ -37,7 +37,7 @@ namespace ImFusion
 	private:
 		void setupGUI();
 		std::unique_ptr<DisplayWidgetMulti> m_display;    ///< Widget for displaying the image data
-		QBoxLayout* m_algorithmDock;
-		QBoxLayout* m_verticalLayout;
+		QBoxLayout* m_algorithmDock = nullptr;
+		QBoxLayout* m_verticalLayout = nullptr;
 	};
 }

@@ -1,16 +1,20 @@
-/* Copyright (c) 2012-2019 ImFusion GmbH, Munich, Germany. All rights reserved. */
+/* Copyright (c) 2012-2024 ImFusion GmbH, Munich, Germany. All rights reserved. */
 #pragma once
 
 #include "Custom2D3DRegistrationInitialization.h"
 
 #include <ImFusion/Base/Algorithm.h>
-#include <ImFusion/CT/XRay2D3DRegistrationAlgorithm.h>
 
 #include <memory>
 
 namespace ImFusion
 {
 	class SharedImageSet;
+	namespace CT
+	{
+		class XRay2D3DRegistrationAlgorithm;
+
+	}
 
 	// Demonstration of how to use the 2D/3D Registration algorithm from the SDK.
 	class Example2D3DRegistrationAlgorithm : public Algorithm
