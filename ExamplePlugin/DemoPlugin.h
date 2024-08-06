@@ -12,8 +12,8 @@ namespace ImFusion
 	{
 	public:
 		DemoPlugin();
-		virtual ~DemoPlugin();
-		virtual const AlgorithmFactory* getAlgorithmFactory();
-		virtual const AlgorithmControllerFactory* getAlgorithmControllerFactory();
+		~DemoPlugin() override;
+		const AlgorithmFactory* getAlgorithmFactory() override;
+		const AlgorithmControllerFactory* getAlgorithmControllerFactory() override;
 	};
 }

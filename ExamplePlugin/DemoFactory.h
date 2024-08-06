@@ -1,4 +1,4 @@
-/* Copyright (c) 2012-2019 ImFusion GmbH, Munich, Germany. All rights reserved. */
+/* Copyright (c) 2012-2024 ImFusion GmbH, Munich, Germany. All rights reserved. */
 #pragma once
 
 #include <ImFusion/Base/AlgorithmControllerFactory.h>
@@ -19,6 +19,8 @@ namespace ImFusion
 	class DemoControllerFactory : public AlgorithmControllerFactory
 	{
 	public:
-		virtual AlgorithmController* create(Algorithm* a) const;
+		DemoControllerFactory();
+
+		AlgorithmController* create(Algorithm* a) const override;
 	};
 }

@@ -6,17 +6,22 @@
 namespace ImFusion
 {
 	DemoAlgorithmFactory::DemoAlgorithmFactory()
+		: AlgorithmFactory("ExamplePlugin")
 	{
 		// register the DemoAlgorithm
-		registerAlgorithm<DemoAlgorithm>("Demo;Demo algorithm");
+		registerAlgorithm<DemoAlgorithm>("DemoAlgorithm", "Demo;Demo algorithm");
 	}
 
+	DemoControllerFactory::DemoControllerFactory()
+		: AlgorithmControllerFactory("ExamplePlugin")
+	{
+	}
 
 	AlgorithmController* DemoControllerFactory::create(Algorithm* a) const
 	{
 		// register the DemoController for the DemoAlgorithm
-		if (DemoAlgorithm* alg = dynamic_cast<DemoAlgorithm*>(a))
+		if (auto alg = dynamic_cast<DemoAlgorithm*>(a))
 			return new DemoController(alg);
-		return 0;
+		return nullptr;
 	}
 }

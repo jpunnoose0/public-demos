@@ -1,4 +1,4 @@
-/* Copyright (c) 2012-2019 ImFusion GmbH, Munich, Germany. All rights reserved. */
+/* Copyright (c) 2012-2024 ImFusion GmbH, Munich, Germany. All rights reserved. */
 #pragma once
 
 #include <ImFusion/Base/ImFusionPlugin.h>
@@ -16,6 +16,5 @@ namespace ImFusion
 		virtual ~Example2D3DRegistrationPlugin();
 		virtual const AlgorithmFactory* getAlgorithmFactory();
 		virtual const AlgorithmControllerFactory* getAlgorithmControllerFactory();
-
 	};
 }

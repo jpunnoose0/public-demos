@@ -4,24 +4,18 @@
 
 // Export free factory function to instantiate plugin
 #ifdef WIN32
-extern "C" __declspec(dllexport) ImFusion::ImFusionPlugin* createPlugin()
-{
-	return new ImFusion::DemoPlugin;
-}
+extern "C" __declspec(dllexport) ImFusion::ImFusionPlugin* createPlugin() { return new ImFusion::DemoPlugin; }
 #else
-extern "C" ImFusion::ImFusionPlugin* createPlugin()
-{
-	return new ImFusion::DemoPlugin;
-}
+extern "C" ImFusion::ImFusionPlugin* createPlugin() { return new ImFusion::DemoPlugin; }
 #endif
 
 
 namespace ImFusion
 {
-	DemoPlugin::DemoPlugin() {}
+	DemoPlugin::DemoPlugin() = default;
 
 
-	DemoPlugin::~DemoPlugin() {}
+	DemoPlugin::~DemoPlugin() = default;
 
 
 	const ImFusion::AlgorithmFactory* DemoPlugin::getAlgorithmFactory() { return new DemoAlgorithmFactory; }

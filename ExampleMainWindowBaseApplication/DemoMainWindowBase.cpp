@@ -20,7 +20,7 @@ int main(int argn, char** argv)
 	QApplication app(argn, argv);
 	ImFusion::DemoMainWindowBase ex;
 	ex.show();
-	app.exec();
+	QApplication::exec();
 }
 
 
@@ -83,7 +83,7 @@ namespace ImFusion
 		// Use the DicomLoader to load DICOM data from the disk
 		DicomLoader dicomLoader("C:/path/to/your/DICOM/data");
 		std::vector<std::unique_ptr<SharedImageSet>> images = dicomLoader.loadImages();
-		if (images.size() == 0)
+		if (images.empty())
 			return;
 
 		// Handle loaded images:
@@ -93,7 +93,7 @@ namespace ImFusion
 		for (auto& sis : images)
 		{
 			dl.add(sis.get());
-			dataModel()->add(std::move(sis));
+			this->dataModel()->add(std::move(sis));
 		}
 
 		// show the data, DisplayWidget takes care of distributing them to the compatible views
