@@ -15,7 +15,7 @@ namespace ImFusion
 	{
 	public:
 		DemoExecutable();
-		virtual ~DemoExecutable();
+		~DemoExecutable() override;
 
 	private:
 		std::unique_ptr<DisplayWidgetMulti> m_display;    ///< Widget for displaying the image data
