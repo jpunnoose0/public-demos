@@ -1,0 +1,7 @@
+
+/ExamplePlugin/.vs
+*.db
+*.vsidx
+*.lock
+/ExamplePlugin/build
+/ExamplePlugin/out

@@ -2,6 +2,8 @@
 project(DemoPlugin)
 cmake_minimum_required(VERSION 3.2.0)
 
+set(CMAKE_PREFIX_PATH "C:\\Qt\\5.15.8\\msvc2019_64\\lib\\cmake")
+
 # Locate the ImFusion SDK.
 # List required modules/plugins in the COMPONENTS section (e.g. COMPONENTS ImFusionSeg ImFusionReg).
 find_package(ImFusionLib REQUIRED)
@@ -36,7 +38,7 @@ target_include_directories(DemoPlugin PRIVATE
 )
 # Link agains the ImFusionLib and selected modules/plugins
 target_link_libraries(DemoPlugin PRIVATE
-	ImFusionLib
+	ImFusion::ImFusionLib
 )
 
 # Define output target directories and provide instructions on how to launch
